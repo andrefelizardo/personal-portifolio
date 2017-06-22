@@ -1,25 +1,57 @@
 <!doctype html>
-<html lang="pt-br">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="styles/materialize.min.css" media="screen,projection">
-        <script src="scripts/lib/angular.min.js"></script>
-        <title>Serviço Fácil - Prestação de serviço a um clique</title>
-    </head>
-    <body>
-        <div class="container">
-            <div class="row">
-                <div class="col s12">
-                    <h1>Serviço Fácil</h1>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col s6">
-                    <a href="cliente/cadastro_clientes.html" class="waves-effect waves-light btn">Cadastro de Clientes</a>
-                </div>
+<html lang="pt-br" ng-app ng-strict-di>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="styles/materialize.min.css" media="screen,projection">
+    <title>Serviço Fácil - Prestação de serviço a um clique</title>
+</head>
+
+<body>
+    <nav class="light-blue">
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Serviço Fácil</a>
+            <ul class="right hide-on-med-and-down">
+                <li class="active"><a href="#">Início</a></li>
+                <li><a href="#">Cadastre-se</a></li>
+            </ul>
+            <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="side-nav" id="mobile-menu">
+                <li class="active"><a href="#">Início</a></li>
+                <li><a href="#">Cadastre-se</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <!--<h1>Serviço Fácil</h1>-->
             </div>
         </div>
-    </body>
+        <div class="row">
+            <div class="col s6">
+                <!--<a href="cliente/cadastro_clientes.html" class="waves-effect waves-light btn">Cadastro de Clientes</a>-->
+            </div>
+        </div>
+    </div>
+    <script src="scripts/lib/angular.min.js"></script>
+    <script src="scripts/lib/jquery-3.2.1.min.js"></script>
+    <script src="scripts/lib/materialize.min.js"></script>
+</body>
+<!--ISSO É SÓ PRO LIVE RELOAD. EXCLUIR DEPOIS-->
+<script>
+    document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
+
+</script>
+
+<script>
+    $(document).ready(function () {
+        $('.button-collapse').sideNav();
+    });
+
+</script>
+
 </html>
