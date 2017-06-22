@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="pt-br" ng-app="servicoFacil" ng-strict-di>
+<html lang="pt-br" ng-app="servicoFacil">
 
 <head>
     <meta charset="utf-8">
@@ -8,56 +8,26 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="styles/materialize.min.css" media="screen,projection">
 
-    <script src="scripts/app.js"></script>
-    <script src="scripts/angular-ui-router.min.js"></script>
-    <script src="scripts/rotas.js"></script>
-
     <title>Serviço Fácil - Prestação de serviço a um clique</title>
 </head>
 
 <body>
-    <nav class="light-blue">
-        <div class="nav-wrapper">
-            <div class="container">
-                <a href="#" class="brand-logo">Serviço Fácil</a>
-                <ul class="right hide-on-med-and-down">
-                    <li class="active"><a href="#">Início</a></li>
-                    <li><a href="#">Cadastre-se</a></li>
-                </ul>
-            </div>
-            <a href="#" data-activates="mobile-menu" class="button-collapse"><i class="material-icons">menu</i></a>
-            <ul class="side-nav" id="mobile-menu">
-                <li class="active"><a href="#">Início</a></li>
-                <li><a href="#">Cadastre-se</a></li>
-            </ul>
-        </div>
-    </nav>
+    <ui-view name="header"></ui-view>
     <div class="container">
-        <div class="row">
-            <div class="col s12">
-                <!--<h1>Serviço Fácil</h1>-->
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s6">
-                <!--<a href="cliente/cadastro_clientes.html" class="waves-effect waves-light btn">Cadastro de Clientes</a>-->
-            </div>
-        </div>
+        <ui-view name="conteudo"></ui-view>
     </div>
-    <script src="scripts/lib/angular.min.js"></script>
-    <script src="scripts/lib/jquery-3.2.1.min.js"></script>
-    <script src="scripts/lib/materialize.min.js"></script>
 </body>
+<script src="scripts/lib/angular.min.js"></script>
+<script src="scripts/lib/jquery-3.2.1.min.js"></script>
+<script src="scripts/lib/materialize.min.js"></script>
+
+<script src="scripts/lib/angular-ui-router.min.js"></script>
+<script src="scripts/lib/ocLazyLoad.min.js"></script>
+<script src="scripts/app.js"></script>
+<script src="scripts/rotas.js"></script>
 <!--ISSO É SÓ PRO LIVE RELOAD. EXCLUIR DEPOIS-->
 <script>
     document.write('<script src="http://' + (location.host || 'localhost').split(':')[0] + ':35729/livereload.js?snipver=1"></' + 'script>')
-
-</script>
-
-<script>
-    $(document).ready(function () {
-        $('.button-collapse').sideNav();
-    });
 
 </script>
 
