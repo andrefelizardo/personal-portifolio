@@ -1,0 +1,1 @@
+var servicoFacilModulo = angular.module('servicoFacil', []);
