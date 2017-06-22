@@ -1,1 +1,1 @@
-var servicoFacilModulo = angular.module('servicoFacil', []);
+var servicoFacilModulo = angular.module('servicoFacil', ['app.rotas']);
