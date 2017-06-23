@@ -2,43 +2,29 @@ angular.module('servicoFacil.rotas', ['ui.router'])
     .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $ocLazyLoadProvider) {
         $stateProvider
 
-            .state('home', {
+            .state('app.home', {
+                url: '',
+                templateUrl: 'home.html'
+            })
+
+            .state('app.cadastro-cliente', {
+                url: '/cadastro-cliente',
+                templateUrl: 'cliente/cadastro_clientes/cadastro_clientes.html'
+            })
+
+            .state('app', {
                 url: '',
                 views: {
                     'header': {
                         templateUrl: 'templates/header.html',
-                        resolve: {
-                            dps: function($ocLazyLoad) {
-                                return $ocLazyLoad.load([
-                                    {
-                                        files: ['scripts/templates/header.js']
-                                    }
-                                ])
-                            }
-                        }
+                        controller: 'headerCtrl'
                     },
                     'conteudo': {
-                        templateUrl: 'home.html'
+                        template: '<ui-view/>'
                     }
                 }
-            })
 
-            .state('cadastro-cliente', {
-                url: '/cadastro-cliente',
-                views: {
-                    'header': {
-                        templateUrl: 'templates/header.html'
-                    },
-                    'conteudo': {
-                        templateUrl: 'cliente/cadastro_clientes/cadastro_clientes.html'
-                    }
-                }
             })
-
-        // $locationProvider.html5Mode({
-        //     enabled: true,
-        //     requireBase: false
-        // });
 
         $urlRouterProvider.otherwise('home');
     });
