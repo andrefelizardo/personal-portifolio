@@ -3,7 +3,7 @@ angular.module('servicoFacil.rotas', ['ui.router'])
         $stateProvider
 
             .state('app.home', {
-                url: '',
+                url: '/home',
                 templateUrl: 'home.html'
             })
 
@@ -13,18 +13,27 @@ angular.module('servicoFacil.rotas', ['ui.router'])
             })
 
             .state('app', {
-                url: '',
+                url: '/',
                 views: {
                     'header': {
                         templateUrl: 'templates/header.html',
-                        controller: 'headerCtrl'
+                        controller: 'headerCtrl',
                     },
                     'conteudo': {
                         template: '<ui-view/>'
+                    }
+                },
+                resolve: {
+                    dps: function($ocLazyLoad) {
+                        return $ocLazyLoad.load([
+                            {
+                                files: ['scripts/controllers/headerCtrl.js']
+                            }
+                        ]);
                     }
                 }
 
             })
 
-        $urlRouterProvider.otherwise('home');
+        $urlRouterProvider.otherwise('//home');
     });
