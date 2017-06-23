@@ -19,7 +19,17 @@ angular.module('servicoFacil.rotas', ['ui.router'])
 
             .state('app.cadastro-cliente', {
                 url: '/cadastro-cliente',
-                templateUrl: 'cliente/cadastro_clientes/cadastro_clientes.html'
+                templateUrl: 'cliente/cadastro_clientes/cadastro_clientes.html',
+                controller: 'cadastro_clientesCtrl',
+                resolve: {
+                    dps: function($ocLazyLoad) {
+                        return $ocLazyLoad.load([
+                            {
+                                files: ['cliente/cadastro_clientes/cadastro_clientesCtrl.js']
+                            }
+                        ]);
+                    }
+                }
             })
 
             .state('app', {
