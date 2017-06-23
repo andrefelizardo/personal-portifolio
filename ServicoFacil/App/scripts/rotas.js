@@ -4,7 +4,17 @@ angular.module('servicoFacil.rotas', ['ui.router'])
 
             .state('app.home', {
                 url: '/home',
-                templateUrl: 'home.html'
+                templateUrl: 'home.html',
+                controller: 'homeCtrl',
+                resolve: {
+                    dps: function($ocLazyLoad) {
+                        return $ocLazyLoad.load([
+                            {
+                                files: ['scripts/controllers/homeCtrl.js', 'styles/home.css']
+                            }
+                        ]);
+                    }
+                }
             })
 
             .state('app.cadastro-cliente', {

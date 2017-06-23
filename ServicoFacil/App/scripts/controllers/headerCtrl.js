@@ -3,8 +3,9 @@ angular
     .controller('headerCtrl', ['$scope',
         function ($scope) {
 
-            $scope.pageLoad = function () {
-                $('.button-collapse').sideNav();
-            }
-            $scope.pageLoad();
+            $scope.$on('$viewContentLoaded', function () {
+                $('.button-collapse').sideNav({
+                    closeOnClick: true
+                });
+            });
         }]);
