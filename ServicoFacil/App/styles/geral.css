@@ -1,3 +1,16 @@
 .container-form {
     padding: 5vh 0;
 }
+.container-form div.input-field > input[required] + label:after, .container-form div.input-field.required label:after {
+    content: '*';
+    color: #26a69a;
+    display: initial;
+    position: initial;
+    top: initial;
+    opacity: 1;
+    margin-left: 5px;
+}
+.container-form div.input-field > input[type=checkbox] + label, .container-form div.col > input[type=radio] + label {
+    margin-right: 20px;
+}
+

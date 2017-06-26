@@ -25,7 +25,7 @@ angular.module('servicoFacil.rotas', ['ui.router'])
                     dps: function($ocLazyLoad) {
                         return $ocLazyLoad.load([
                             {
-                                files: ['cliente/cadastro_clientes/cadastro_clientesCtrl.js']
+                                files: ['cliente/cadastro_clientes/cadastro_clientesCtrl.js', 'scripts/lib/jquery.mask.min.js']
                             }
                         ]);
                     }
