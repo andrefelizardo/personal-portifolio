@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="styles/materialize.min.css" media="screen,projection">
     <link rel="stylesheet" href="styles/geral.css" media="screen,projection">
 
     <title>Serviço Fácil - Prestação de serviço a um clique</title>
@@ -15,10 +14,21 @@
 <body>
     <ui-view name="header"></ui-view>
     <ui-view name="conteudo"></ui-view>
+    <!-- Modal Structure -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h4></h4>
+            <p></p>
+        </div>
+        <div class="modal-footer">
+            <a href="" class="modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+        </div>
+    </div>
 </body>
 <script src="scripts/lib/angular.min.js"></script>
 <script src="scripts/lib/jquery-3.2.1.min.js"></script>
 <script src="scripts/lib/materialize.min.js"></script>
+<link rel="stylesheet" href="styles/materialize.min.css" media="screen,projection">
 
 <script src="scripts/lib/angular-ui-router.min.js"></script>
 <script src="scripts/lib/ocLazyLoad.min.js"></script>

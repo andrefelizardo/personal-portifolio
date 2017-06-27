@@ -39,7 +39,15 @@ angular
                 close: 'OK',
                 min: [1950, 1, 1],
                 max: true,
-                formatSubmit: 'dd/mm/yyyy'
+                formatSubmit: 'mm/dd/yyyy',
+                onClose: function () {
+                    if ($('input[name=rg_data_expedicao_submit]').val() !== '') {
+                        $('#rg_data_expedicao').removeClass('invalid');
+                        $('#rg_data_expedicao').addClass('valid');
+                        $scope.cliente.rg_data_expedicao = new Date($('input[name=rg_data_expedicao_submit]').val());
+                        $scope.$apply();
+                    }
+                }
             });
         }
 
@@ -59,13 +67,28 @@ angular
             });
         }
 
-        $scope.validarFormulario = function() {
-            console.log('validando');
-            if($scope.cadastro_cliente.$valid) {
-                console.log('válido');
+        $scope.validarFormulario = function () {
+            if ($scope.cadastro_cliente.$valid) {
+                $('.modal .modal-content h4').text('Salvando');
+                $('.modal .modal-content p').text('Salvando dados');
+                $('.modal .modal-close').hide();
+                // $('.modal').modal('open');
             } else {
-                console.log('inválido');
+                $('.modal .modal-content h4').text('Erro');
+                $('.modal .modal-content p').text('Verifique se todos os campos obrigatórios foram preenchidos corretamente.');
+                $('.modal').modal('open');
+                $('.ng-invalid-required').addClass('invalid');
+                $scope.scrollToFirstInputWithError();
             }
+        }
+
+        $scope.scrollToFirstInputWithError = function () {
+            // não consegui traduzir essa, ficou melhor em inglês
+            var firstElement = $('input.invalid:first').offset().top;
+            $('body').animate({
+                scrollTop: firstElement
+            }, 500, 'easeOutElastic');
+
         }
 
         $scope.$on('$viewContentLoaded', function () {
@@ -73,6 +96,7 @@ angular
             $('select').material_select();
             $scope.inicializarAutocomplete();
             $scope.setarMascaras();
+            $('#nome_social, #nome_completo').characterCounter();
             $('form').removeClass('hide');
             $('.preloader-wrapper').addClass('hide');
         });

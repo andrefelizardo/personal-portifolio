@@ -15,56 +15,57 @@
     <form name="cadastro_cliente" ng-submit="validarFormulario()" class="col s12 hide" novalidate>
         <div class="row">
             <div class="col s12">
-                <input type="radio" id="pessoa-fisica" ng-model="cliente.tipo_cliente" value="pessoa_fisica" name="tipo-cliente" class="with-gap"
+                <input type="radio" name="tipo_cliente" id="pessoa-fisica" ng-model="cliente.tipo_cliente" value="pessoa_fisica" name="tipo-cliente" class="with-gap"
                     ng-init="cliente.tipo_cliente = 'pessoa_fisica'">
                 <label for="pessoa-fisica">Pessoa física</label>
-                <input type="radio" id="empresa" ng-model="cliente.tipo_cliente" value="empresa" name="tipo-cliente" class="with-gap">
+                <input type="radio" name="tipo_cliente" id="empresa" ng-model="cliente.tipo_cliente" value="empresa" name="tipo-cliente" class="with-gap">
                 <label for="empresa">Empresa</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12 required">
-                <input type="text" ng-model="cliente.nome_completo" id="nome_completo" class="validate" required>
+                <input type="text" name="nome_completo" ng-model="cliente.nome_completo" minlength="10" id="nome_completo" class="validate" required>
                 <label for="nome_completo" ng-show="cliente.tipo_cliente == 'pessoa_fisica'">Nome</label>
                 <label for="nome_completo" ng-show="cliente.tipo_cliente !== 'pessoa_fisica'">Razão social</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12 required">
-                <input type="text" id="nome_social" ng-model="cliente.apelido" class="validate" required>
-                <label for="nome_social" ng-show="cliente.tipo_cliente == 'pessoa_fisica'">Apelido</label>
+                <input type="text" name="apelido" id="nome_social" ng-model="cliente.apelido" data-length="15" class="validate" required>
+                <label for="nome_social" data-error="pnc" ng-show="cliente.tipo_cliente == 'pessoa_fisica'">Apelido</label>
                 <label for="nome_social" ng-show="cliente.tipo_cliente !== 'pessoa_fisica'">Nome fantasia</label>
             </div>
         </div>
         <div class="row" ng-show="cliente.tipo_cliente == 'pessoa_fisica'">
             <div class="input-field col s6">
-                <input type="text" ng-model="cliente.cpf" id="cpf" class="validate" ng-required="cliente.tipo_cliente == 'pessoa_fisica'">
+                <input type="text" name="cpf" ng-model="cliente.cpf" id="cpf" class="" ng-required="cliente.tipo_cliente == 'pessoa_fisica'" minlength="14">
                 <label for="cpf">CPF</label>
             </div>
         </div>
         <div class="row" ng-show="cliente.tipo_cliente !== 'pessoa_fisica'">
             <div class="input-field col s6">
-                <input type="text" id="cnpj" class="validate" ng-model="cliente.cnpj" ng-required="cliente.tipo_cliente !== 'pessoa_fisica'">
+                <input name="cnpj" type="text" id="cnpj" class="validate" ng-model="cliente.cnpj" ng-required="cliente.tipo_cliente !== 'pessoa_fisica'">
                 <label for="cnpj">CNPJ</label>
             </div>
         </div>
         <div class="row" ng-show="cliente.tipo_cliente == 'pessoa_fisica'">
             <div class="input-field col s4">
-                <input type="text" id="rg_numero" class="validate" ng-model="cliente.rg_numero" ng-required="cliente.tipo_cliente == 'pessoa_fisica'">
+                <input type="text" name="rg_numero" id="rg_numero" class="validate" ng-model="cliente.rg_numero" ng-required="cliente.tipo_cliente == 'pessoa_fisica'">
                 <label for="rg_numero">RG</label>
             </div>
             <div class="input-field col s4">
-                <input type="text" id="rg_orgao" class="validate" ng-model="cliente.rg_orgao" ng-required="cliente.tipo_cliente == 'pessoa_fisica'">
+                <input type="text" name="rg_orgao" id="rg_orgao" class="validate" ng-model="cliente.rg_orgao" ng-required="cliente.tipo_cliente == 'pessoa_fisica'">
                 <label for="rg_orgao">Órgão expedidor</label>
             </div>
-            <div class="input-field col s4 required">
-                <input type="date" id="rg_data_expedicao" ng-model="cliente.rg_data_expedicao" class="datepicker" ng-required="cliente.tipo_cliente == 'pessoa_fisica'">
+            <div class="input-field col s4 required data_expedicao">
+                <input type="date" name="rg_data_expedicao" id="rg_data_expedicao" class="datepicker" ng-required="cliente.tipo_cliente == 'pessoa_fisica'">
+                <input type="hidden" ng-model="cliente.rg_data_expedicao" ng-required="cliente.tipo_cliente == 'pessoa_fisica'">
                 <label for="rg_data_expedicao" class="active">Data de expedição</label>
             </div>
         </div>
         <div class="row" ng-show="cliente.tipo_cliente == 'pessoa_fisica'">
             <div class="input-field col s12">
-                <select ng-model="cliente.escolaridade">
+                <select ng-model="cliente.escolaridade" name="escolaridade">
                 <option value="" disabled selected>Escolha uma opção</option>
                 <option value="1">Analfabeto</option>
                 <option value="2">Ensino Fundamental Incompleto</option>
@@ -82,50 +83,50 @@
         </div>
         <div class="row" ng-show="cliente.tipo_cliente == 'pessoa_fisica'">
             <div class="input-field col s12">
-                <input type="text" id="autocomplete-input" class="autocomplete" ng-model="cliente.profissao">
+                <input type="text" name="profissao" id="autocomplete-input" class="autocomplete" ng-model="cliente.profissao">
                 <label for="autocomplete-input">Profissão</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input type="email" id="email" class="validate" ng-model="cliente.email" required>
+                <input type="email" name="email" id="email" class="validate" ng-model="cliente.email" required>
                 <label for="email">E-mail</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input type="email" id="confirme_email" ng-model="cliente.confirme_email" class="validate" required>
+                <input type="email" name="confirme_email" id="confirme_email" ng-model="cliente.confirme_email" class="validate" required>
                 <label for="confirme_email">Confirme o e-mail</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s6">
-                <input type="tel" id="telefone_principal" class="validate" ng-model="cliente.telefone_principal" required>
+                <input type="tel" name="telefone_principal" id="telefone_principal" class="validate" ng-model="cliente.telefone_principal" required>
                 <label for="telefone_principal">Celular principal</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s6">
-                <input type="tel" id="telefone_adicional1" ng-model="cliente.telefone_adicional1">
+                <input type="tel" name="telefone_adicional1" id="telefone_adicional1" ng-model="cliente.telefone_adicional1">
                 <label for="telefone_adicional1">Telefone/Celular adicional</label>
             </div>
         </div>
-        <div class="row">
+        <!--<div class="row">
             <div class="input-field col s6">
-                <input type="tel" id="telefone_adicional2" ng-model="cliente.telefone_adicional2">
+                <input type="tel" name="telefone_adicional2" id="telefone_adicional2" ng-model="cliente.telefone_adicional2">
                 <label for="telefone_adicional2">Telefone/Celular adicional</label>
             </div>
-        </div>
+        </div>-->
         <div class="row">
             <div class="input-field col s6">
-                <input type="text" id="ano_cadastro" class="validate" ng-model="cliente.ano_cadastro" required>
+                <input type="text" name="ano_cadastro" id="ano_cadastro" class="validate" ng-model="cliente.ano_cadastro" required>
                 <label for="ano_cadastro">Ano de cadastro</label>
             </div>
         </div>
-        <div class="row">
+        <!--<div class="row">
             <div class="input-field col s12 required">
-                <select ng-model="cliente.forma_conhecimento" required>
-                <option value="" disabled selected>Escolha uma opção</option>
+                <select ng-model="cliente.forma_conhecimento" name="forma_conhecimento" required>
+                <option value="" disabled selected></option>
                 <option value="1">Televisão</option>
                 <option value="2">Rádio</option>
                 <option value="3">Internet</option>
@@ -135,24 +136,30 @@
             </select>
                 <label>Como você ficou conhecendo o <i>Serviço Fácil</i>?</label>
             </div>
-        </div>
-        <div class="row">
+        </div>-->
+        <!--<div class="row">
             <div class="input-field col s12">
-                <textarea id="como_conheceu_outros" ng-model="cliente.forma_conhecimento_outros" class="materialize-textarea"></textarea>
+                <textarea id="como_conheceu_outros" name="como_conheceu_outros" ng-model="cliente.forma_conhecimento_outros" class="materialize-textarea"></textarea>
                 <label for="como_conheceu_outros">Descrição</label>
             </div>
-        </div>
+        </div>-->
         <div class="row">
-            <div class="input-field col s12">
-                <input type="checkbox" id="forma_comunicacao_email" ng-model="cliente.forma_comunicacao_email" class="filled-in" checked="checked">
+            <div class="input-field col s12 required">
+                <select class="filled-in" name="forma_comunicacao" id="forma_comunicacao" multiple ng-model="cliente.forma_comunicacao" required>
+                    <option value="" disabled selected>Selecione uma opção</option>
+                    <option value="email" class="filled-in">Email</option>
+                    <option value="sms" class="filled-in">SMS</option>
+                </select>
+                <label for="forma_comunicacao">Forma de comunicação</label>
+                <!--<input type="checkbox" required name="foma_comunicacao_email" id="forma_comunicacao_email" ng-model="cliente.forma_comunicacao_email" class="filled-in"  ng-init="cliente.forma_comunicacao_email = true">
                 <label for="forma_comunicacao_email">E-mail</label>
-                <input type="checkbox" id="forma_comunicacao_sms" ng-model="cliente.forma_comunicacao_sms" class="filled-in">
-                <label for="forma_comunicacao_sms">SMS</label>
+                <input type="checkbox" name="forma_comunicacao_sms" id="forma_comunicacao_sms" ng-model="cliente.forma_comunicacao_sms" class="filled-in">
+                <label for="forma_comunicacao_sms">SMS</label>-->
             </div>
         </div>
         <div class="row">
             <div class="input-field col s6">
-                <input type="text" id="nome_usuario" ng-model="cliente.nome_usuario" class="validate" required>
+                <input type="text" name="nome_usuario" id="nome_usuario" ng-model="cliente.nome_usuario" class="validate" required>
                 <label for="nome_usuario">Nome de usuário</label>
             </div>
             <div class="col s6">
@@ -161,25 +168,25 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input type="password" id="senha" class="validate" ng-model="cliente.senha" required>
+                <input type="password" name="senha" id="senha" class="validate" ng-model="cliente.senha" required>
                 <label for="senha">Senha</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input type="password" id="confirmar_senha" class="validate" ng-model="cliente.confirma_senha" required>
+                <input type="password" name="confirmar_senha" id="confirmar_senha" class="validate" ng-model="cliente.confirma_senha" required>
                 <label for="confirmar_senha">Confirme a senha</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <input type="checkbox" id="termo_responsabilidade" class="filled-in" ng-model="cliente.termo_responsabilidade">
+                <input type="checkbox" required name="termo_responsabilidade" id="termo_responsabilidade" class="filled-in" ng-model="cliente.termo_responsabilidade">
                 <label for="termo_responsabilidade">Li e estou de acordo com o <span>Termo de responsabilidade</span>.</label>
             </div>
         </div>
         <div class="row">
             <div class="input-field col s12">
-                <button class="btn waves-effect waves-light" ng-disabled="cadastro_cliente.$invalid">Cadastrar
+                <button class="btn waves-effect waves-light botao-cadastrar" type="submit" ng-disabled="cadastro_cliente.$valid">Cadastrar
                     <i class="material-icons right">send</i>
                 </button>
             </div>
