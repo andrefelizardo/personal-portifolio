@@ -1,7 +1,7 @@
 .container-form {
     padding: 5vh 0;
 }
-.container-form div.input-field > input:not([type=checkbox])[required] + label:after, .container-form div.input-field.required > label:after {
+.container-form div.input-field > input:not([type=checkbox])[required] + label > span:after, .container-form div.input-field.required > label > span:after {
     content: '*';
     color: #26a69a;
     display: initial;
@@ -12,5 +12,8 @@
 }
 .container-form div.input-field > input[type=checkbox] + label, .container-form div.col > input[type=radio] + label {
     margin-right: 20px;
+}
+input:not([type])+label:after, input[type=text]+label:after, input[type=password]+label:after, input[type=email]+label:after, input[type=url]+label:after, input[type=time]+label:after, input[type=date]+label:after, input[type=datetime]+label:after, input[type=datetime-local]+label:after, input[type=tel]+label:after, input[type=number]+label:after, input[type=search]+label:after, textarea.materialize-textarea+label:after {
+    top: 35px!important;
 }
 
