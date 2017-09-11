@@ -1,0 +1,56 @@
+* {
+    font-family: 'Source Sans Pro', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+.container-overlay {
+    position: absolute;
+    background-color: rgba(28, 28, 28, 0.9);
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+}
+.container-overlay ~ * {
+    z-index: 10;
+}
+#capa {
+    text-align: center;
+    color:#fff;
+    background: url(../imgs/background-01.png) no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+}
+#capa h1 {
+    font-size: 5em;
+}
+#capa h2 {
+    font-size: 3em;
+}
+#capa .icones {
+    margin-top: 2em;
+}
+#capa .icones > a {
+    opacity: .4;
+    margin: 0 1em;
+    text-decoration: none;
+    transition: .5s ease-in-out;
+    -webkit-filter: grayscale(100%);
+	filter: grayscale(100%);
+}
+#capa .icones > a:hover {
+    opacity: 1;
+    -webkit-filter: grayscale(0);
+	filter: grayscale(0);
+    transition: .5s ease-in-out;
+}
+#capa .icones > a:after {
+    display: none;
+}
+#capa .icones > a:hover:after {
+    display: inline-block;
+}
