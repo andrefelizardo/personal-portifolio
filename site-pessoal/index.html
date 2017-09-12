@@ -11,20 +11,27 @@
     <!-- <link rel="stylesheet" href="css/reset.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/galeria.css">
 </head>
 
 <body>
     <div id="main">
+        <div id="header">
+            <span class="logo-title">
+                <img src="imgs/logo.png">
+                <span>André Felizardo</span>
+            </span>
+        </div>
         <div id="capa">
             <div class="container-overlay"></div>
             <h1>André Felizardo</h1>
             <h2>Apaixonado por
                 <u>aprender</u>,
                 <u>criar</u> e
-                <u>compartilhar</u>
+                <u>compartilhar</u>.
             </h2>
             <div class="icones">
-                <a class="github" href="http://github.com/andrefelizardo" target="_blank">
+                <a class="github tooltip" href="http://github.com/andrefelizardo" target="_blank">
                     <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
                         <g>
                             <title>background</title>
@@ -38,7 +45,7 @@
                         </g>
                     </svg>
                 </a>
-                <a href="https://www.linkedin.com/in/andreluisfelizardo/" class="linkedin">
+                <a href="https://www.linkedin.com/in/andreluisfelizardo/" class="linkedin tooltip">
                     <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
 
                         <g>
@@ -52,10 +59,10 @@
                         </g>
                     </svg>
                 </a>
-                <a href="http://www.andrefelizardo.com.br/blog" class="blog">
-                    <img src="imgs/logo.png" alt="Logo André Felizardo" width="50px" height="50px">
+                <a href="http://www.andrefelizardo.com.br/blog" class="blog tooltip" title="Blog André Felizardo">
+                    <img src="imgs/logo.png" alt="Blog André Felizardo" width="50px" height="50px">
                 </a>
-                <a href="http://www.facebook.com/andrefelizardopage" class="facebook">
+                <a href="http://www.facebook.com/andrefelizardopage" class="facebook tooltip">
                     <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
                         <g>
                             <title>background</title>
@@ -70,8 +77,68 @@
                 </a>
             </div>
         </div>
+        <div id="apresentacao">
+            <div class="container">
+                <p><span>Olá</span>, eu sou André Felizardo, engenheiro Front-end de Petrópolis/RJ.</p>
+                <p>Antes de me tornar front-end eu já mexia com HTML, CSS e JS desde 2007 no <a href="http://www.ieprogresso.com.br"
+                        target="_blank">Instituto Progresso</a>, curso de informática onde trabalhei por 6 anos. Agora eu trabalho
+                    como Front-end na <a href="http://allen.com.br/" target="_blank">Allen Brasil</a>.
+                </p>
+                <p>Também sou palestrante, <a href="http://www.andrefelizardo.com.br/blog/" target="_blank">blogueiro</a> e
+                    costumo tentar ajudar a quem for possível em grupos de Facebook e fóruns pela internet.</p>
+            </div>
+        </div>
+        <div id="portifolio">
+            <div class="container">
+                <h2>Portifolio</h2>
+                <p>Últimos trabalhos</p>
+            </div>
+            <div class="galeria">
+                <div class="row">
+                    <ul>
+                        <a href="#" class="close"></a>
+                        <li>
+                            <a href="#allen-treinamento">
+                                <img src="imgs/projetos/allen-treinamento.png" alt="Portal Allen Treinamento">
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#patra">
+                                <img src="imgs/projetos/patra.png" alt="Portal Allen Treinamento">
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div id="allen-treinamento" class="port">
+                    <div class="row">
+                        <div class="description">
+                            <h1>Portal Allen Treinamento</h1>
+                            <p>Allen Treinamento é uma unidade do Grupo Allen, maior parceiro Microsoft na América Latina, atuando
+                                há mais de 20 anos na formação e certificação dos profissionais de TI.</p>
+                        </div>
+
+                        <img src="imgs/projetos/allen-treinamento-detalhe.png" alt="">
+                    </div>
+                </div>
+                <div id="patra" class="port">
+                    <div class="row">
+                        <div class="description">
+                            <h1>Portal PATRA</h1>
+                            <p>Allen Treinamento é uma unidade do Grupo Allen, maior parceiro Microsoft na América Latina, atuando
+                                há mais de 20 anos na formação e certificação dos profissionais de TI.</p>
+                        </div>
+
+                        <img src="imgs/projetos/patra-detalhe.png" alt="">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 </body>
+<script src="scripts/jquery-3.2.1.min.js"></script>
+<script src="scripts/main.js"></script>
+<script src="scripts/galeria.js"></script>
 <script>
     (function (i, s, o, g, r, a, m) {
         i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
