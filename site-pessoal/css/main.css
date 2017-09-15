@@ -6,6 +6,7 @@
 u, em, p a, p a:hover, p a:active {
     color: #039eff;
 }
+
 .container-overlay {
     position: absolute;
     background-color: rgba(28, 28, 28, 0.9);
@@ -129,7 +130,7 @@ u, em, p a, p a:hover, p a:active {
     #apresentacao, #portifolio {
         margin: 5em auto;
     }
-    #apresentacao p, #portifolio p {
+    #apresentacao p {
         margin-bottom: 10px;
         font-size: 1.5em;
     }
@@ -193,5 +194,20 @@ u, em, p a, p a:hover, p a:active {
     
         100% {
             transform: scale(0.75)
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        body {
+            font-size: 10px;
+        }
+        #header {
+            min-width: 40%;
+            position: relative;
+        }
+        #capa .icones > a {
+            opacity: 1;
+            filter:none;
+            -webkit-filter: none;
         }
     }

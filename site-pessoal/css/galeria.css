@@ -43,7 +43,6 @@ header h1 {
   letter-spacing: 3px;
   line-height: 0.8;
   padding-top: 50px;
-  font-family: "Montserrat", sans-serif;
 }
 header h1 span {
   text-transform: uppercase;
@@ -67,6 +66,7 @@ header p {
   margin: 0 auto;
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
   /* align-content: center; */
 }
 .galeria ul li {
@@ -117,7 +117,29 @@ header p {
 .galeria ul li a:hover:after {
   opacity: 1;
 }
-
+.galeria .info {
+  font-size: 0.35em;
+  position: absolute;
+}
+.galeria p {
+  font-size: 1.5em;
+  margin-bottom: 1em;
+}
+.galeria h3 {
+  font-size: 2em;
+}
+.galeria h4 {
+  font-size: 1.25em;
+}
+.galeria h4 + p {
+  font-size: 1em;
+}
+@media screen and (max-width: 768px) {
+  .galeria ul li {
+    margin-bottom: 5em;
+    border: 1px solid #ccc;
+  }
+}
 .port {
   position: absolute;
   width: 100%;
@@ -139,6 +161,7 @@ header p {
 .port img {
   width: 50%;
 }
+
 .port .description {
   float: left;
   width: 50%;
@@ -190,4 +213,23 @@ header p {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
+}
+
+@media screen and (max-width: 720px) {
+  .galeria {
+    padding-bottom: 50px;
+  }
+  .port {
+    padding-top: 70px;
+  }
+  .port .description {
+    float: none;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .port img {
+    display: block;
+    clear: both;
+    margin: 0 auto 1em;
+  }
 }
