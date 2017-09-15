@@ -55,7 +55,7 @@ header p {
 }
 
 .galeria {
-  padding: 40px 0 300px;
+  padding: 40px 0 40px;
   position: relative;
   overflow: hidden;
 }
@@ -231,5 +231,25 @@ header p {
     display: block;
     clear: both;
     margin: 0 auto 1em;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .port .description {
+    padding-bottom: 20px;
+  }
+
+  .galeria .info {
+    position: static;
+    display: block;
+    margin-bottom: 1em;
+    font-size: .55em;
+  }
+  .galeria h4 {
+    font-size: 1.5em;
+  }
+  .galeria h4 + p {
+    font-size: 1.25em;
+    margin-top: .5em;
   }
 }
