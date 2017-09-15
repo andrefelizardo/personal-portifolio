@@ -133,3 +133,65 @@ u, em, p a, p a:hover, p a:active {
         margin-bottom: 10px;
         font-size: 1.5em;
     }
+
+    footer {
+    background: #1a1a1a;
+    color: #fff;
+    padding: 1em;
+}
+
+    footer .amor {
+        display: inline-block;
+        vertical-align: middle;
+        color: #D70021;
+        position: relative;
+        width: 20px;
+        height: 20px;
+        animation: heartbeat 1s infinite;
+        font-size: 2em
+    }
+    
+    footer .amor:before, footer .amor:after {
+        position: absolute;
+        content: "";
+        left: 10px;
+        top: 0;
+        width: 10px;
+        height: 16px;
+        background: #D70021;
+        border-radius: 10px 10px 0 0;
+        transform: rotate(-45deg);
+        transform-origin: 0 100%
+    }
+    
+    footer .amor:after {
+        left: 0;
+        transform: rotate(45deg);
+        transform-origin: 100% 100%
+    }
+
+    @keyframes heartbeat {
+        0% {
+            transform: scale(0.75)
+        }
+    
+        20% {
+            transform: scale(1)
+        }
+    
+        40% {
+            transform: scale(0.75)
+        }
+    
+        60% {
+            transform: scale(1)
+        }
+    
+        80% {
+            transform: scale(0.75)
+        }
+    
+        100% {
+            transform: scale(0.75)
+        }
+    }

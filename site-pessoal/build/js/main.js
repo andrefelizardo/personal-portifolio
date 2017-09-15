@@ -1,0 +1,1 @@
+$(document).ready(function(){_AlturaTela=$(window).height(),$(window).scroll(function(){$(window).scrollTop()>_AlturaTela?$(".logo-title").css("color","#000"):$(".logo-title").css("color","#fff")}),$(window).resize(function(){_AlturaTela=$(window).height()})});
