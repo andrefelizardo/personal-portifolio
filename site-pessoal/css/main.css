@@ -220,7 +220,7 @@ u, em, p a, p a:hover, p a:active, ul > li > a, ul > li > a:hover {
 
     @media screen and (max-width: 768px) {
         body {
-            font-size: 10px;
+            font-size: 12px;
         }
         #header {
             min-width: 40%;
@@ -236,5 +236,12 @@ u, em, p a, p a:hover, p a:active, ul > li > a, ul > li > a:hover {
     @media screen and (max-width: 500px) {
         .container-overlay {
             background-color: rgba(28, 28, 28, 0.55);
+        }
+        #ultimos-posts ul > li {
+            font-size: 1.25em;
+            margin: .75em 0;
+        }
+        footer {
+            font-size: 1.2em;
         }
     }

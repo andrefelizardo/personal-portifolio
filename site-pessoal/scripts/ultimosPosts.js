@@ -3,7 +3,7 @@ $(document).ready(function(){
         for(i = 0; i < 3; i++) {
             var titulo = $(data).find('item').eq(i).find('title').text();
             var url = $(data).find('item').eq(i).find('link').text();
-            $("<li><a href='" + url + "'>" + titulo + "</a>").appendTo($('#ultimos-posts ul'));
+            $("<li><a href='" + url + "' target='_blank'>" + titulo + "</a>").appendTo($('#ultimos-posts ul'));
         }
       })
       .done(function(){
