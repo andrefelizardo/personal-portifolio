@@ -112,13 +112,6 @@ u, em, p a, p a:hover, p a:active, ul > li > a, ul > li > a:hover {
     filter: grayscale(0);
     transition: .5s ease-in-out;
 }
-#capa .icones > a > * {
-    animation: spinHorizontal 2s linear;
-    animation-iteration-count: 2;
-}
-#capa .icones > a:hover > * {
-    animation-play-state: paused;
-}
 #capa .icones > a:after {
     display: none;
 }
@@ -126,122 +119,117 @@ u, em, p a, p a:hover, p a:active, ul > li > a, ul > li > a:hover {
     display: inline-block;
 }
 
-@keyframes spinHorizontal {
-    0% { transform: rotateY(0deg); }
-    100% { transform: rotateY(360deg); }
-    }
+h2 {
+    font-size: 2.5em;
+}
 
-    h2 {
-        font-size: 2.5em;
-    }
+#apresentacao, #portifolio, #ultimos-posts {
+    margin: 5em auto;
+}
+#apresentacao p {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
 
-    #apresentacao, #portifolio, #ultimos-posts {
-        margin: 5em auto;
-    }
-    #apresentacao p {
-        margin-bottom: 10px;
-        font-size: 1.5em;
-    }
+#ultimos-posts {
+    display: none;
+}
 
-    #ultimos-posts {
-        display: none;
-    }
+#ultimos-posts ul {
+    font-size: 1.25em;
+    margin-top: 1em;
+}
 
-    #ultimos-posts ul {
-        font-size: 1.25em;
-        margin-top: 1em;
-    }
-    
-    #ultimos-posts ul > li {
-        margin: .5em 0;
-    }
+#ultimos-posts ul > li {
+    margin: .5em 0;
+}
 
-    footer {
+footer {
     background: #1a1a1a;
     color: #fff;
     padding: 1em;
 }
 
-    footer .amor {
-        display: inline-block;
-        vertical-align: middle;
-        color: #D70021;
+footer .amor {
+    display: inline-block;
+    vertical-align: middle;
+    color: #D70021;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    animation: heartbeat 1s infinite;
+    font-size: 2em
+}
+
+footer .amor:before, footer .amor:after {
+    position: absolute;
+    content: "";
+    left: 10px;
+    top: 0;
+    width: 10px;
+    height: 16px;
+    background: #D70021;
+    border-radius: 10px 10px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%
+}
+
+footer .amor:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%
+}
+
+@keyframes heartbeat {
+    0% {
+        transform: scale(0.75)
+    }
+    
+    20% {
+        transform: scale(1)
+    }
+    
+    40% {
+        transform: scale(0.75)
+    }
+    
+    60% {
+        transform: scale(1)
+    }
+    
+    80% {
+        transform: scale(0.75)
+    }
+    
+    100% {
+        transform: scale(0.75)
+    }
+}
+
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 12px;
+    }
+    #header {
+        min-width: 40%;
         position: relative;
-        width: 20px;
-        height: 20px;
-        animation: heartbeat 1s infinite;
-        font-size: 2em
     }
-    
-    footer .amor:before, footer .amor:after {
-        position: absolute;
-        content: "";
-        left: 10px;
-        top: 0;
-        width: 10px;
-        height: 16px;
-        background: #D70021;
-        border-radius: 10px 10px 0 0;
-        transform: rotate(-45deg);
-        transform-origin: 0 100%
+    #capa .icones > a {
+        opacity: 1;
+        filter:none;
+        -webkit-filter: none;
     }
-    
-    footer .amor:after {
-        left: 0;
-        transform: rotate(45deg);
-        transform-origin: 100% 100%
-    }
+}
 
-    @keyframes heartbeat {
-        0% {
-            transform: scale(0.75)
-        }
-    
-        20% {
-            transform: scale(1)
-        }
-    
-        40% {
-            transform: scale(0.75)
-        }
-    
-        60% {
-            transform: scale(1)
-        }
-    
-        80% {
-            transform: scale(0.75)
-        }
-    
-        100% {
-            transform: scale(0.75)
-        }
+@media screen and (max-width: 500px) {
+    .container-overlay {
+        background-color: rgba(28, 28, 28, 0.55);
     }
-
-    @media screen and (max-width: 768px) {
-        body {
-            font-size: 12px;
-        }
-        #header {
-            min-width: 40%;
-            position: relative;
-        }
-        #capa .icones > a {
-            opacity: 1;
-            filter:none;
-            -webkit-filter: none;
-        }
+    #ultimos-posts ul > li {
+        font-size: 1.25em;
+        margin: .75em 0;
     }
-
-    @media screen and (max-width: 500px) {
-        .container-overlay {
-            background-color: rgba(28, 28, 28, 0.55);
-        }
-        #ultimos-posts ul > li {
-            font-size: 1.25em;
-            margin: .75em 0;
-        }
-        footer {
-            font-size: 1.2em;
-        }
+    footer {
+        font-size: 1.2em;
     }
+}
