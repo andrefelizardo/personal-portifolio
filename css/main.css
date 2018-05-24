@@ -127,8 +127,9 @@ h2 {
     margin: 5em auto;
 }
 #apresentacao p {
-    margin-bottom: 10px;
+    margin-bottom: 16px;
     font-size: 1.5em;
+    line-height: 1.5
 }
 
 #ultimos-posts {
